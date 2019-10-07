@@ -19,7 +19,7 @@ export class OverlayService {
     return alert;
   }
 
-  async loagind(options?: LoadingController): Promise<HTMLIonLoadingElement> {
+  async loading(options?: LoadingController): Promise<HTMLIonLoadingElement> {
     const loading = await this.loadingCtrl.create({
       message: 'Loading...',
       ...options
