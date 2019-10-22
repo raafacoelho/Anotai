@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-read',
@@ -6,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./read.page.scss'],
 })
 export class ReadPage implements OnInit {
-
-  constructor() { }
 
   ngOnInit() {
   }
