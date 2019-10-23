@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>comanda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button (click)="lerQrCode()" expand="block" primary>
+    <ion-icon name="qr-scanner"></ion-icon>
+    Ler Comanda
+  </ion-button>
+
+  <ion-label>{{RetornoQR}}</ion-label>
+</ion-content>

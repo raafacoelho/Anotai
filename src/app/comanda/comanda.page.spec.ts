@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReadPage } from './read.page';
+import { ComandaPage } from './comanda.page';
 
-describe('ReadPage', () => {
-  let component: ReadPage;
-  let fixture: ComponentFixture<ReadPage>;
+describe('ComandaPage', () => {
+  let component: ComandaPage;
+  let fixture: ComponentFixture<ComandaPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReadPage ],
+      declarations: [ ComandaPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReadPage);
+    fixture = TestBed.createComponent(ComandaPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

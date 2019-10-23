@@ -5,12 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
+import { ComandaPage } from './comanda.page';
+
+import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: ComandaPage
   }
 ];
 
@@ -21,6 +23,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [ComandaPage],
+  providers: [QRScanner]
 })
-export class HomePageModule {}
+export class ComandaPageModule {}
