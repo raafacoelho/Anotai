@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 
 @Component({
@@ -8,9 +8,10 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 })
 export class ComandaPage implements OnInit {
 
-  public RetornoQR: string;
+  public retornoQR: string = "Ainda não leu o QR.";
 
-  constructor(private qrScanner: QRScanner) { }
+  constructor(private qrScanner: QRScanner,
+              private ref: ChangeDetectorRef,) { }
 
   ngOnInit() {
   }
@@ -23,15 +24,20 @@ export class ComandaPage implements OnInit {
         // Se a camera estiver permitida.
         if (status.authorized) {
 
+          this.qrScanner.show();
+          window.document.querySelector('ion-app').classList.add('transparent-body');
+
           // Começa a scannear
           let scanSub = this.qrScanner.scan().subscribe(
             // A variável text abaixo é o retorno da leitura do QR.
             (text: string) => {
 
-              this.RetornoQR = text;
+              this.retornoQR = text;
 
               this.qrScanner.hide(); // Esconde o preview da camera
               scanSub.unsubscribe(); // Para de Scann
+              window.document.querySelector('ion-app').classList.remove('transparent-body');
+              this.ref.detectChanges();
             });
 
         } else if (status.denied) {

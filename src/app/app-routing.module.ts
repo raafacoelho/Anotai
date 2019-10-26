@@ -5,12 +5,13 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
-  { path: 'profile', loadChildren: './account/account.module#AccountModule', canLoad: [AuthGuard] },
   {
     path        : 'home',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
-  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },  { path: 'comanda', loadChildren: './comanda/comanda.module#ComandaPageModule' },
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'comanda', loadChildren: './comanda/comanda.module#ComandaPageModule' },
+  // { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
 
 
 ];
