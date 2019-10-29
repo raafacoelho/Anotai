@@ -52,12 +52,12 @@ export class ComandaPage implements OnInit {
       .catch((e: any) => console.log('Error is', e));
   }
 
-  async abrirModalPagamento(){
+  async abrirModalPagamento() {
 
     const modal = await this.modalController.create({
       component: PagamentoComponent
     });
-    
+
     return await modal.present();
   }
 }
