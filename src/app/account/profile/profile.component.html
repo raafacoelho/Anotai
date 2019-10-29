@@ -1,7 +1,10 @@
-<ion-header>
-    <ion-nav color="primary">
-      <ion-title> Create Profile</ion-title>
-    </ion-nav>
+  <ion-header translucent>
+    <ion-toolbar>
+      <ion-title>Perfil</ion-title>
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">Close</ion-button>
+      </ion-buttons>
+    </ion-toolbar>
   </ion-header>
   
   <ion-content padding>
@@ -10,7 +13,7 @@
     <form>
         <div align="center">
             
-          <h1> Profile</h1>
+          <h1> Rafaella</h1>
           <ion-avatar item-start>
             <ion-img src="./assets/icon/eu.jpg" text-right></ion-img>
           </ion-avatar>
@@ -72,8 +75,8 @@
 
       </ion-list>
 
-    <ion-button color="secondary" ion-button block >Save</ion-button>
-    <ion-button color="danger" ion-button block>Reset</ion-button>
+    <ion-button color="secondary" ion-button block >Salvar</ion-button>
+    <ion-button color="danger" ion-button block>Limpar</ion-button>
 
   </form>
   </ion-content>
