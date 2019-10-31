@@ -1,9 +1,21 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>account</ion-title>
+    <div align="right">
+      <ion-avatar item-start>
+        <ion-img src="./assets/icon/eu.jpg"></ion-img>
+      </ion-avatar>
+    </div>    
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-button (click)="abrirModalProfile()" expand="block">
+    Perfil
+  </ion-button>
+
+  <ion-button (click)="abrirModalPagamento()" expand="block">
+    Formas de Pagamento
+  </ion-button>
 
 </ion-content>
