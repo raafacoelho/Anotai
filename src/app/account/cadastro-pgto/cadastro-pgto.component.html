@@ -1,6 +1,6 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-title>Cadastrar Cartão</ion-title>
+    <ion-title>Forma de Pagamento</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="dismissModal()">Close</ion-button>
     </ion-buttons>
@@ -10,13 +10,8 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
-        <ion-label stacked>Número do cartão</ion-label>
-        <ion-input type="number" name="numCard"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <ion-label stacked>Nome do titular</ion-label>
-      <ion-input type="text" name="nome"></ion-input>
+      <ion-input type="text" name="numCard"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -27,12 +22,7 @@
     <ion-item>
       <ion-label stacked>Cod Segurança</ion-label>
       <ion-input type="number"></ion-input>
-    </ion-item>   
-    
-    <ion-item>
-      <ion-label stacked>Cod Segurança</ion-label>
-      <ion-input type="number"></ion-input>
-    </ion-item>
+    </ion-item>     
   </ion-list>
 
   <ion-button ion-button block>Salvar</ion-button>

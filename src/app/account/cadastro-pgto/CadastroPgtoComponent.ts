@@ -15,5 +15,4 @@ export class CadastroPgtoComponent implements OnInit {
   async dismissModal() {
     this.modalController.dismiss();
   }
-
 }
