@@ -1,5 +1,3 @@
-import { ComandaComponent } from './comanda/comanda.component';
-import { CardapioComponent } from './cardapio/cardapio.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -26,8 +24,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ComandaPage, PagamentoComponent, CardapioComponent, ComandaComponent],
+  declarations: [ComandaPage, PagamentoComponent],
   providers: [QRScanner],
-  entryComponents: [PagamentoComponent, ComandaComponent, CardapioComponent]
+  entryComponents: [PagamentoComponent]
 })
 export class ComandaPageModule {}
