@@ -1,0 +1,30 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Forma de Pagamento</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Nome do titular</ion-label>
+      <ion-input type="text" name="numCard"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Validade Cartão</ion-label>
+      <ion-input type="number" displayFormat="MMM YY" pickerFormat="MMM YY"></ion-input>
+    </ion-item>     
+    
+    <ion-item>
+      <ion-label stacked>Cod Segurança</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>     
+  </ion-list>
+
+  <ion-button ion-button block>Salvar</ion-button>
+
+</ion-content>
