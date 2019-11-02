@@ -18,17 +18,7 @@ export class HomePage implements OnInit {
 
 
     // Configuration for each Slider
-    slideOptsOne = {
-      initialSlide: 0,
-      slidesPerView: 1,
-      autoplay: true
-    };
-    slideOptsTwo = {
-      initialSlide: 0,
-      slidesPerView: 1,
-      autoplay: true
-    };
-    slideOptsThree = {
+    slideOpts = {
       initialSlide: 0,
       slidesPerView: 1,
       autoplay: true

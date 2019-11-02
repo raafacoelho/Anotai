@@ -1,17 +1,10 @@
 <ion-header>
-  <ion-nav>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-nav>
+  <ion-toolbar>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
-  <ion-item>
-    <ion-searchbar></ion-searchbar>
-    <ion-button full>Buscar</ion-button>
-  </ion-item>
 
     <h3>Nature</h3>
    
@@ -26,7 +19,7 @@
         </ion-col>
         <ion-col size="10">
    
-          <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
+          <ion-slides pager="true" [options]="slideOpts" #slideWithNav
             (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
             <ion-slide *ngFor="let s of sliderOne.slidesItems">
               <img src="./assets/img/{{s.id}}.jpg">
@@ -58,7 +51,7 @@
         </ion-col>
         <ion-col size="10">
    
-          <ion-slides pager="true" [options]="slideOptsTwo" #slideWithNav2
+          <ion-slides pager="true" [options]="slideOpts" #slideWithNav2
             (ionSlideDidChange)="SlideDidChange(sliderTwo,slideWithNav2)">
             <ion-slide *ngFor="let s of sliderTwo.slidesItems">
               <img src="./assets/img/{{s.id}}.jpg">
@@ -89,7 +82,7 @@
         </ion-col>
         <ion-col size="10">
    
-          <ion-slides pager="true" [options]="slideOptsThree" #slideWithNav3
+          <ion-slides pager="true" [options]="slideOpts" #slideWithNav3
             (ionSlideDidChange)="SlideDidChange(sliderThree,slideWithNav3)">
             <ion-slide *ngFor="let s of sliderThree.slidesItems">
               <img src="./assets/img/{{s.id}}.jpg">
@@ -106,6 +99,23 @@
         </ion-col>
       </ion-row>
     </ion-grid>
+
+    <script>
+      const searchbar = document.querySelector('ion-searchbar');
+      const items = Array.from(document.querySelector('h3').children);
+
+      searchbar.addEventListener('ionInput', handleInput);
+
+      function handleInput(event) {
+        const query = event.target.value.toLowerCase();
+        requestAnimationFrame(() => {
+          items.forEach(item => {
+            const shouldShow = item.textContent.toLowerCase().indexOf(query) > -1;
+            item.style.display = shouldShow ? 'block' : 'none';
+          });
+        });
+      }
+    </script>
    
    
   </ion-content>
