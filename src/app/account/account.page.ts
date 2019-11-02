@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
+
 import { ModalController } from '@ionic/angular';
 import { ProfileComponent } from './profile/profile.component';
 import { CadastroPgtoComponent } from './cadastro-pgto/CadastroPgtoComponent';
->>>>>>> 65835afca1f680e5473c7dfe0463bb78c91644e5
+
 
 @Component({
   selector: 'app-account',
@@ -13,17 +12,10 @@ import { CadastroPgtoComponent } from './cadastro-pgto/CadastroPgtoComponent';
 })
 export class AccountPage implements OnInit {
 
-<<<<<<< HEAD
-  constructor() { }
-=======
   constructor(private modalController: ModalController) { }
->>>>>>> 65835afca1f680e5473c7dfe0463bb78c91644e5
 
   ngOnInit() {
   }
-
-<<<<<<< HEAD
-=======
 
   async abrirModalProfile() {
 
@@ -43,5 +35,4 @@ export class AccountPage implements OnInit {
     return await modal.present();
   }
 
->>>>>>> 65835afca1f680e5473c7dfe0463bb78c91644e5
 }

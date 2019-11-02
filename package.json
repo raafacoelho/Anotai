@@ -34,6 +34,7 @@
     "cordova-plugin-qrscanner": "^3.0.1",
     "core-js": "^2.5.4",
     "firebase": "~7.0.0",
+    "natives": "^1.1.6",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -89,8 +90,4 @@
       "ios"
     ]
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 65835afca1f680e5473c7dfe0463bb78c91644e5
