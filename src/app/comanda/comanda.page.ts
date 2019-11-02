@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ModalController } from '@ionic/angular';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+import { EComandaComponent } from './e-comanda/e-comanda.component';
 
 @Component({
   selector: 'app-comanda',
@@ -56,6 +57,14 @@ export class ComandaPage implements OnInit {
   async abrirModalPagamento() {
     const modal = await this.modalController.create({
       component: PagamentoComponent
+    });
+
+    return await modal.present();
+  }
+
+  async abrirModalComanda() {
+    const modal = await this.modalController.create({
+      component: EComandaComponent
     });
 
     return await modal.present();

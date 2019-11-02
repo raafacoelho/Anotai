@@ -1,3 +1,4 @@
+import { EComandaComponent } from './e-comanda/e-comanda.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -24,8 +25,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ComandaPage, PagamentoComponent],
+  declarations: [ComandaPage, PagamentoComponent, EComandaComponent],
   providers: [QRScanner],
-  entryComponents: [PagamentoComponent]
+  entryComponents: [PagamentoComponent, EComandaComponent]
 })
 export class ComandaPageModule {}
