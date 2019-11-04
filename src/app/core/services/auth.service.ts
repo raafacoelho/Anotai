@@ -62,4 +62,5 @@ export class AuthService {
 
     return this.afAuth.auth.signInWithPopup(signInProvider);
   }
+
 }

@@ -1,3 +1,4 @@
+import { CardapioComponent } from './cardapio/cardapio.component';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ModalController } from '@ionic/angular';
@@ -65,6 +66,14 @@ export class ComandaPage implements OnInit {
   async abrirModalComanda() {
     const modal = await this.modalController.create({
       component: EComandaComponent
+    });
+
+    return await modal.present();
+  }
+
+  async abrirModalCardapio() {
+    const modal = await this.modalController.create({
+      component: CardapioComponent
     });
 
     return await modal.present();

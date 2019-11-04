@@ -1,0 +1,46 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Cardápio</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <!-- Hamburguers-->
+  <div>
+    <h5 class="feature-title">Burgers</h5>
+
+    <ion-list>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img class="border-img" src="./assets/img/h.jpg"></ion-img>
+        </ion-avatar>
+        <ion-label>
+          <p class="item-title">Beef cheese</p>
+          <p class="item-description">Pão, bife de boi 180 gr, molho especial do cheff, muzzarela, rúcula e tomate</p>
+          <p class="item-price">R$30,00</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Bebidas -->
+  <div>
+      <h5 class="feature-title">Bebidas</h5>
+  
+      <ion-list>
+        <ion-item>
+          <ion-avatar slot="start">
+            <ion-img class="border-img" src="./assets/img/coca.jpg"></ion-img>
+          </ion-avatar>
+          <ion-label>
+            <p class="item-title">Coca Cola</p>
+            <p class="item-description">Garrafa 600ml</p>
+            <p class="item-price">R$5,00</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+</ion-content>
