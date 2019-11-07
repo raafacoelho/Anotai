@@ -5,24 +5,22 @@
 </ion-header>
 
 <ion-content>
-
   <ion-button (click)="lerQrCode()" expand="block" primary>
     <ion-icon name="qr-scanner"></ion-icon>
     Ler Comanda
   </ion-button>
 
-  <ion-label>{{retornoQR}}</ion-label>
+  <ion-label>{{ retornoQR }}</ion-label>
 
   <ion-button (click)="abrirModalCardapio()" expand="block">
-    Minha Comanda
+    Cardápio
   </ion-button>
 
   <ion-button (click)="abrirModalComanda()" expand="block">
     Minha Comanda
   </ion-button>
-  
+
   <ion-button (click)="abrirModalPagamento()" expand="block">
     Pagar conta
   </ion-button>
-
 </ion-content>
