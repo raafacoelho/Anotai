@@ -1,0 +1,20 @@
+{
+  "name": "anotai",
+  "description": "An Ionic project",
+  "main": "",
+  "authors": [
+    "Ionic Framework"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/raafacoelho/Anotai",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^7.2.3"
+  }
+}

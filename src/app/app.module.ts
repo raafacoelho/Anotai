@@ -8,4 +8,4 @@ import { CoreModule } from './core/core.module';
   imports: [CoreModule, AppRoutingModule],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
