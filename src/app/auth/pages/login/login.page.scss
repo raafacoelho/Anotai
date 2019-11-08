@@ -55,10 +55,10 @@
   color: #fff;
 }
 
-.item-native {
+.bg-transparent {
   background: transparent !important;
 }
 
-:host([item-native]) {
-  background: transparent;
+.no-padding {
+  padding: 0;
 }
