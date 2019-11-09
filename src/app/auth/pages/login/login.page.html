@@ -40,8 +40,8 @@
               </ng-container>
 
               <ion-item>
-                <ion-icon name="mail" color="primary" slot="start"></ion-icon>
-                <ion-input type="email" placeholder="Email" formControlName="email" inputmode="email" autofocus="true">
+                <ion-icon name="mail" color="danger" slot="start"></ion-icon>
+                <ion-input class="bold" type="email" placeholder="Email" formControlName="email" inputmode="email" autofocus="true">
                 </ion-input>
                 <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')">
                   Required
@@ -51,9 +51,9 @@
                 </ion-note>
               </ion-item>
 
-              <ion-item>
-                <ion-icon name="lock" color="primary" slot="start"></ion-icon>
-                <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+              <ion-item class="email">
+                <ion-icon name="lock" color="danger" slot="start"></ion-icon>
+                <ion-input class="bold" type="password" placeholder="Password" formControlName="password"></ion-input>
                 <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('required')">
                   Required
                 </ion-note>
@@ -62,12 +62,13 @@
                 </ion-note>
               </ion-item>
 
-              <ion-button expand="block" type="submit" [disabled]="authForm.invalid">
+              <ion-button color="danger" class="bt-login" expand="block" type="submit" [disabled]="authForm.invalid">
                 {{ configs.action }}
               </ion-button>
+
             </form>
 
-            <ion-button expand="block" fill="clear" (click)="changeAuthAction()">
+            <ion-button class="color" expand="block" fill="clear" (click)="changeAuthAction()">
               {{ configs.actionChange }}
             </ion-button>
             <ion-button expand="block" (click)="onSubmit(authProviders.Facebook)">

@@ -46,19 +46,18 @@
   font-weight: 700;
 }
 
-.bg-transparent {
-  background-color: red;
-   color: red;
-}
-
 .color {
   color: #fff;
 }
 
-.bg-transparent {
+ion-item {
   background: transparent !important;
 }
 
-.no-padding {
-  padding: 0;
+.bt-login {
+  margin-top: 20px;
 }
+
+ion-item {
+  --ion-background-color: transparent !important;
+  }
