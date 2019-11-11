@@ -1,0 +1,43 @@
+ion-toolbar {
+    --ion-toolbar-background: #FDB813;
+    --border-width: 0 0 0.0px !important;
+}
+
+.yellow-div {
+    width: 100%;
+    height: 40%;
+    background: #FDB813;
+}
+
+.fullscreanCenter {
+    width: 100%;
+    position: absolute;
+}
+
+.featured-text {
+    font-weight: 700;
+    color: #484237;
+    text-align: left;
+    margin-left: 35%;
+}
+
+.customSlides {
+    width: 100%;
+    position: absolute;
+    height: 350%;
+    margin-top: 20% !important;
+}
+
+.customSlide {
+    width: 80% !important;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+ion-slides {
+    --bullet-background-active: #484237 !important;  
+}
+
+.left20 {
+    margin-left: 20%;
+}

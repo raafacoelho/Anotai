@@ -14,7 +14,7 @@
         <div class="mg-top-20">
           <div class="bold text-center">
             <p>
-            Entre com sua conta para continuar!
+              Entre com seu login para continuar!
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@
               </ng-container>
 
               <ion-item>
-                <ion-icon name="mail" color="danger" slot="start"></ion-icon>
+                <ion-icon name="mail" color="light" slot="start"></ion-icon>
                 <ion-input class="bold" type="email" placeholder="Email" formControlName="email" inputmode="email" autofocus="true">
                 </ion-input>
                 <ion-note slot="end" color="danger" *ngIf="email.dirty && email.hasError('required')">
@@ -52,7 +52,7 @@
               </ion-item>
 
               <ion-item class="email">
-                <ion-icon name="lock" color="danger" slot="start"></ion-icon>
+                <ion-icon name="lock" color="light" slot="start"></ion-icon>
                 <ion-input class="bold" type="password" placeholder="Password" formControlName="password"></ion-input>
                 <ion-note slot="end" color="danger" *ngIf="password.dirty && password.hasError('required')">
                   Required
@@ -62,7 +62,7 @@
                 </ion-note>
               </ion-item>
 
-              <ion-button color="danger" class="bt-login" expand="block" type="submit" [disabled]="authForm.invalid">
+              <ion-button color="light" class="bt-login color2" expand="block" type="submit" [disabled]="authForm.invalid">
                 {{ configs.action }}
               </ion-button>
 
