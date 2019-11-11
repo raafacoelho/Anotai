@@ -1,82 +1,88 @@
-  <ion-header translucent>
-    <ion-toolbar>
-      <ion-title>Perfil</ion-title>
-      <ion-buttons slot="end">
-        <ion-button (click)="dismissModal()">Close</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-  
-  
-    <form>
-        <div align="center">
-            
-          <h1> Rafaella</h1>
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <div align="center">
+      <h1>Rafaella</h1>
+      <ion-avatar item-start>
+        <ion-button (click)="openGalery()">
+          <ion-icon name="camera"></ion-icon>
+        </ion-button>
+        <img [src]="downloadUrl | async" *ngIf="downloadUrl | async">
+      </ion-avatar>
+      <!--
           <ion-avatar item-start>
             <ion-img src="./assets/icon/eu.jpg" text-right></ion-img>
           </ion-avatar>
-            
-        </div>
+          -->
+    </div>
     <ion-list>
-      
-        <ion-item>
-          <ion-label floating>Nome</ion-label>
-          <ion-input type="text" name="name" required></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label floating>Nome</ion-label>
+        <ion-input type="text" name="name" required></ion-input>
+      </ion-item>
 
-        <ion-item>
-          <ion-label>Sobrenome</ion-label>
-          <ion-input type="text" name="sobrenome" required></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label>Sobrenome</ion-label>
+        <ion-input type="text" name="sobrenome" required></ion-input>
+      </ion-item>
 
-        <ion-item>
-            <ion-label>CPF</ion-label>
-            <ion-input type="text" name="cpf" required></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label>CPF</ion-label>
+        <ion-input type="text" name="cpf" required></ion-input>
+      </ion-item>
 
-          <ion-item>
-              <ion-label>Celular</ion-label>
-              <ion-input type="text" name="celular" mask="{99-99999-9999}" required></ion-input>
-            </ion-item>
+      <ion-item>
+        <ion-label>Celular</ion-label>
+        <ion-input type="text" name="celular" mask="{99-99999-9999}" required></ion-input>
+      </ion-item>
 
-        <ion-item>
-            <ion-label >Aniversário</ion-label>
-            <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"></ion-datetime>
-        </ion-item>
+      <ion-item>
+        <ion-label>Aniversário</ion-label>
+        <ion-datetime
+          required
+          name="birthdate"
+          displayFormat="DD MMM YYYY"
+          pickerFormat="DD MMM YYYY"
+        ></ion-datetime>
+      </ion-item>
 
-        <ion-item>
-            <ion-label>Informe seu cep </ion-label>
-            <ion-input type="text" placeholder="26112-230" ng-model="cepDigitado"></ion-input>
-        </ion-item>        
-    
-        <ion-button class="button button-block button-positive">Consultar Endereço</ion-button>
+      <ion-item>
+        <ion-label>Informe seu cep </ion-label>
+        <ion-input type="text" placeholder="26112-230" ng-model="cepDigitado"></ion-input>
+      </ion-item>
 
-        <ion-item>
-            <ion-label>Logradouro</ion-label>
-            <ion-input type="text" readonly placeholder="26112-230"></ion-input>
-        </ion-item>  
+      <ion-button class="button button-block button-positive">Consultar Endereço</ion-button>
 
-        <ion-item>
-            <ion-label>Complemento</ion-label>
-            <ion-input type="text" readonly placeholder="26112-230"></ion-input>
-        </ion-item>  
+      <ion-item>
+        <ion-label>Logradouro</ion-label>
+        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+      </ion-item>
 
-        <ion-item>
-            <ion-label>Bairro</ion-label>
-            <ion-input type="text" readonly placeholder="26112-230"></ion-input>
-        </ion-item> 
-        
-        <ion-item>
-            <ion-label>Numero</ion-label>
-            <ion-input type="text"></ion-input>
-        </ion-item>
+      <ion-item>
+        <ion-label>Complemento</ion-label>
+        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+      </ion-item>
 
-      </ion-list>
+      <ion-item>
+        <ion-label>Bairro</ion-label>
+        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+      </ion-item>
 
-    <ion-button color="secondary" ion-button block >Salvar</ion-button>
+      <ion-item>
+        <ion-label>Numero</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="secondary" ion-button block>Salvar</ion-button>
     <ion-button color="danger" ion-button block>Limpar</ion-button>
-
   </form>
-  </ion-content>
+</ion-content>
