@@ -60,5 +60,20 @@
 
 ion-item {
   --ion-background-color: transparent !important;
-  }
+}
 
+ion-button {
+  --background-activated: transparent !important;
+  --background: transparent !important;
+  --background-focused: transparent !important;
+  --background-hover: transparent !important;
+
+
+}
+
+.logo-face {
+  --border-width: 1px !important;
+  --border-color: white !important;
+  --border-style: solid !important;
+  --color-hover: white !important;
+}

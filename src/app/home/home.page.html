@@ -17,18 +17,18 @@
             </ion-col>
 
               <ion-slides pager class="customSlides" [options]="slideOpts" #slideWithNav
-              (ionSlideDidChange)="SlideDidChange(sliderOne, slideWithNav)"> 
+              (ionSlideDidChange)="SlideDidChange(sliderOne, slideWithNav)">
                 <ion-slide class="customSlide" *ngFor="let s of sliderOne.slidesItems; let i = index" [ngClass]="{'left20': i > 0}">
                   <img src="./assets/img/{{ s.id }}.jpg" />
                 </ion-slide>
               </ion-slides>
-            
+
             <ion-col size="1">
                <span class="slider-nav arrow-next" (click)="slideNext(sliderOne, slideWithNav)">
                 <div class="next-icon-custom custon-nav" [class.disabled]="sliderOne.isEndSlide"></div>
                </span>
             </ion-col>
-            
+
             <script>
               const searchbar = document.querySelector('ion-searchbar');
               const items = Array.from(document.querySelector('h3').children);
