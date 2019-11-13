@@ -15,7 +15,7 @@
         <ion-button (click)="openGalery()">
           <ion-icon name="camera"></ion-icon>
         </ion-button>
-        <img [src]="downloadUrl | async" *ngIf="downloadUrl | async">
+        <img [src]="downloadUrl | async" *ngIf="downloadUrl | async" />
       </ion-avatar>
       <!--
           <ion-avatar item-start>
@@ -25,23 +25,44 @@
     </div>
     <ion-list>
       <ion-item>
-        <ion-label floating>Nome</ion-label>
-        <ion-input type="text" name="name" required></ion-input>
+        <ion-label>Nome</ion-label>
+        <ion-input
+          type="text"
+          name="name"
+          [(ngModel)]="profile.name"
+          required
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Sobrenome</ion-label>
-        <ion-input type="text" name="sobrenome" required></ion-input>
+        <ion-input
+          type="text"
+          name="sobrenome"
+          [(ngModel)]="profile.lastname"
+          required
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>CPF</ion-label>
-        <ion-input type="text" name="cpf" required></ion-input>
+        <ion-input
+          type="text"
+          name="cpf"
+          [(ngModel)]="profile.cpf"
+          required
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Celular</ion-label>
-        <ion-input type="text" name="celular" mask="{99-99999-9999}" required></ion-input>
+        <ion-input
+          type="text"
+          name="celular"
+          mask="{(99)9 9999-9999}"
+          [(ngModel)]="profile.celular"
+          required
+        ></ion-input>
       </ion-item>
 
       <ion-item>
@@ -51,38 +72,67 @@
           name="birthdate"
           displayFormat="DD MMM YYYY"
           pickerFormat="DD MMM YYYY"
+          [(ngModel)]="profile.dtnasc"
         ></ion-datetime>
       </ion-item>
 
       <ion-item>
         <ion-label>Informe seu cep </ion-label>
-        <ion-input type="text" placeholder="26112-230" ng-model="cepDigitado"></ion-input>
+        <ion-input
+          type="text"
+          placeholder="26112-230"
+          [(ngModel)]="profile.cpf"
+        ></ion-input>
       </ion-item>
 
-      <ion-button class="button button-block button-positive">Consultar Endereço</ion-button>
+      <ion-button class="button button-block button-positive"
+        >Consultar Endereço</ion-button
+      >
 
       <ion-item>
         <ion-label>Logradouro</ion-label>
-        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+        <ion-input
+          type="text"
+          readonly
+          placeholder="Av. Airton Senna"
+          [(ngModel)]="profile.logradouro"
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Complemento</ion-label>
-        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+        <ion-input
+          type="text"
+          readonly
+          placeholder=""
+          [(ngModel)]="profile.complemento"
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Bairro</ion-label>
-        <ion-input type="text" readonly placeholder="26112-230"></ion-input>
+        <ion-input
+          type="text"
+          readonly
+          placeholder=""
+          [(ngModel)]="profile.bairro"
+        ></ion-input>
       </ion-item>
 
       <ion-item>
         <ion-label>Numero</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" [(ngModel)]="profile.numero"></ion-input>
       </ion-item>
     </ion-list>
 
-    <ion-button color="secondary" ion-button block>Salvar</ion-button>
+    <ion-button
+      color="secondary"
+      ion-button
+      block
+      (click)="saveContato()"
+      [disabled]="loading"
+      >Salvar</ion-button
+    >
     <ion-button color="danger" ion-button block>Limpar</ion-button>
   </form>
 </ion-content>

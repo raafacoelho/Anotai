@@ -17,26 +17,10 @@ export class CardapioComponent implements OnInit {
     public navCtrl: NavController,
     db: AngularFirestore
   ) {
-    console.log('carai');
     this.items = db.collection('Burguers').valueChanges();
   }
 
-  ngOnInit() {
-    // this.db.database.app. .collection('Burguers')
-    //   .get()
-    //   .then(snapshot => {
-    //     if (snapshot.empty) {
-    //       console.log('nada aqui');
-    //       return;
-    //     }
-    //     snapshot.forEach(doc => {
-    //       console.log(doc);
-    //     });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-  }
+  ngOnInit() {}
 
   async dismissModal() {
     this.modalController.dismiss();
