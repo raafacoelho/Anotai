@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~8.1.2",
     "@angular/platform-browser-dynamic": "~8.1.2",
     "@angular/router": "~8.1.2",
+    "@brunoc/ngx-viacep": "^2.1.2",
     "@ionic-native/base64-to-gallery": "^5.15.0",
     "@ionic-native/camera": "^5.15.0",
     "@ionic-native/core": "^5.0.0",
