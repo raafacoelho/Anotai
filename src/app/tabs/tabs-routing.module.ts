@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -15,8 +16,8 @@ const routes: Routes = [
                             {
                                 path: '',
                                 loadChildren: () =>
-                                  import('../home/home.module').then(m => m.HomePageModule)
-                              }
+                                    import('../home/home.module').then(m => m.HomePageModule)
+                            }
                         ]
                 },
                 {
@@ -26,8 +27,8 @@ const routes: Routes = [
                             {
                                 path: '',
                                 loadChildren: () =>
-                                  import('../comanda/comanda.module').then(m => m.ComandaPageModule)
-                              }
+                                    import('../comanda/comanda.module').then(m => m.ComandaPageModule)
+                            }
                         ]
                 },
                 {
@@ -37,8 +38,8 @@ const routes: Routes = [
                             {
                                 path: '',
                                 loadChildren: () =>
-                                  import('../account/account.module').then(m => m.AccountPageModule)
-                              }
+                                    import('../account/account.module').then(m => m.AccountPageModule)
+                            }
                         ]
                 },
                 {
@@ -51,6 +52,11 @@ const routes: Routes = [
     {
         path: '',
         redirectTo: 'tabs/home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'account',
+        redirectTo: 'tabs/account',
         pathMatch: 'full'
     }
 ];

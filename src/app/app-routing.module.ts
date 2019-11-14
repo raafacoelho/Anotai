@@ -6,13 +6,12 @@ const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
   {
-    path        : 'home',
+    path: 'home',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'comanda', loadChildren: './comanda/comanda.module#ComandaPageModule' },
-  // { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
-
+  { path: 'forma-pgto', loadChildren: './forma-pgto/forma-pgto.module#FormaPgtoPageModule' },
 
 ];
 
@@ -20,4 +19,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
+

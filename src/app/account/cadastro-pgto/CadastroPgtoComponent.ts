@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cadastro-pgto',
@@ -8,11 +8,12 @@ import { ModalController } from '@ionic/angular';
 })
 export class CadastroPgtoComponent implements OnInit {
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private navCtrl: NavController) { }
 
   ngOnInit() { }
 
   async dismissModal() {
     this.modalController.dismiss();
   }
+
 }

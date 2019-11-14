@@ -7,13 +7,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <form [formGroup]="form" (submit)="saveContato()">
-    <div align="center">
-      <h1>Rafaella</h1>
-      <ion-avatar item-start>
+    <div align="center" class="photo">
+      <ion-avatar item-start class="avatar">
         <ion-button (click)="openGalery()">
-          <ion-icon name="camera"></ion-icon>
+          <ion-icon class="icon" name="camera"></ion-icon>
         </ion-button>
         <img [src]="downloadUrl | async" *ngIf="downloadUrl | async" />
       </ion-avatar>
@@ -23,58 +22,59 @@
       </ion-avatar>
       -->
     </div>
-    <ion-list>
-      <ion-item>
-        <ion-label>Nome</ion-label>
-        <ion-input type="text" name="name" formControlName="nome"></ion-input>
-      </ion-item>
+    <div class="form">
+      <ion-list>
+        <ion-item>
+          <ion-label>Nome</ion-label>
+          <ion-input type="text" name="name" formControlName="nome" mask="(99) 9 9999-9999">
+          </ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Sobrenome</ion-label>
-        <ion-input type="text" name="sobrenome" formControlName="sobrenome"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>Sobrenome</ion-label>
+          <ion-input type="text" name="sobrenome" formControlName="sobrenome"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>CPF</ion-label>
-        <ion-input type="text" name="cpf" formControlName="cpf"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>CPF</ion-label>
+          <ion-input type="text" name="cpf" formControlName="cpf"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Celular</ion-label>
-        <ion-input type="text" name="celular" formControlName="celular">
-        </ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>Celular</ion-label>
+          <ion-input type="text" name="celular" formControlName="celular">
+          </ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Aniversário</ion-label>
-        <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
-          formControlName="dtnasc"></ion-datetime>
-      </ion-item>
+        <ion-item>
+          <ion-label>Informe seu cep </ion-label>
+          <ion-input type="text" placeholder="26112-230" name="cep" formControlName="cep"></ion-input>
+        </ion-item>
+        <ion-button class="button button-block button-positive" (click)="buscarEndereco()">Consultar Endereço
+        </ion-button>
 
-      <ion-item>
-        <ion-label>Informe seu cep </ion-label>
-        <ion-input type="text" placeholder="26112-230" name="cep" formControlName="cep"></ion-input>
-      </ion-item>
-      <ion-button class="button button-block button-positive" (click)="buscarEndereco()">Consultar Endereço
-      </ion-button>
+        <ion-item>
+          <ion-label>Logradouro</ion-label>
+          <ion-input type="text" readonly placeholder="" formControlName="logradouro"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Logradouro</ion-label>
-        <ion-input type="text" readonly placeholder="" formControlName="logradouro"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>Bairro</ion-label>
+          <ion-input type="text" readonly placeholder="" formControlName="bairro"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Bairro</ion-label>
-        <ion-input type="text" readonly placeholder="" formControlName="bairro"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label>Cidade</ion-label>
+          <ion-input type="text" readonly placeholder="" formControlName="cidade"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label>Numero</ion-label>
-        <ion-input type="text" formControlName="numero"></ion-input>
-      </ion-item>
-    </ion-list>
+        <ion-item>
+          <ion-label>Numero</ion-label>
+          <ion-input type="text" formControlName="numero"></ion-input>
+        </ion-item>
+      </ion-list>
+    </div>
 
     <ion-button color="secondary" ion-button block [disabled]="loading" type="submit">Salvar</ion-button>
-    <ion-button color="danger" ion-button block>Limpar</ion-button>
   </form>
 </ion-content>

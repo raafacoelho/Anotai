@@ -1,0 +1,37 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>Forma Pagamento</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="Back()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (submit)="saveCartao()">
+    <ion-list>
+      <ion-item>
+        <ion-input type="text" name="name" placeholder="Número do Cartão" formControlName="nmcartao"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="name" placeholder="Validade" formControlName="validade"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="name" placeholder="CVV" formControlName="cvv"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="name" placeholder="Nome Titular" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" name="name" placeholder="CPF do Titular" formControlName="cpf"></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button color="secondary" expand="full" [disabled]="loading" type="submit" block>Salvar</ion-button>
+  </form>
+
+</ion-content>

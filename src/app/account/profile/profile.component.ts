@@ -28,10 +28,10 @@ export class ProfileComponent implements OnInit {
     sobrenome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required]),
     celular: new FormControl(null, [Validators.required]),
-    dtnasc: new FormControl(null, [Validators.required]),
     cep: new FormControl(null, [Validators.required]),
     logradouro: new FormControl(null, [Validators.required]),
     bairro: new FormControl(null, [Validators.required]),
+    cidade: new FormControl(null, [Validators.required]),
     numero: new FormControl(null, [Validators.required]),
   });
 
@@ -47,8 +47,8 @@ export class ProfileComponent implements OnInit {
     return this.form.get('celular');
   }
 
-  get dtnasc(): AbstractControl {
-    return this.form.get('dtnasc');
+  get cidade(): AbstractControl {
+    return this.form.get('cidade');
   }
 
   get cpf(): AbstractControl {
@@ -148,6 +148,7 @@ export class ProfileComponent implements OnInit {
       .then(endereco => {
         this.logradouro.setValue(endereco.logradouro);
         this.bairro.setValue(endereco.bairro);
+        this.cidade.setValue(endereco.localidade);
         console.log(endereco);
       })
       .catch((error: ErroCep) => {
