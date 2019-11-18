@@ -47,6 +47,12 @@
         </ion-item>
 
         <ion-item>
+          <ion-label>Aniversário</ion-label>
+          <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+            formControlName="datanasc"></ion-datetime>
+        </ion-item>
+        <!--
+        <ion-item>
           <ion-label>Informe seu cep </ion-label>
           <ion-input type="text" placeholder="26112-230" name="cep" formControlName="cep"></ion-input>
         </ion-item>
@@ -72,9 +78,11 @@
           <ion-label>Numero</ion-label>
           <ion-input type="text" formControlName="numero"></ion-input>
         </ion-item>
+        -->
       </ion-list>
     </div>
 
-    <ion-button color="secondary" ion-button block [disabled]="loading" type="submit">Salvar</ion-button>
+    <ion-button class="save" expand="full" color="medium" block [disabled]="loading" type="submit">Salvar
+    </ion-button>
   </form>
 </ion-content>

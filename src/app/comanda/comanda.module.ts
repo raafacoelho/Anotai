@@ -10,7 +10,6 @@ import { IonicModule } from '@ionic/angular';
 import { ComandaPage } from './comanda.page';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
-import { PagamentoComponent } from './pagamento/pagamento.component';
 
 const routes: Routes = [
   {
@@ -26,8 +25,8 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ComandaPage, PagamentoComponent, EComandaComponent, CardapioComponent],
+  declarations: [ComandaPage, EComandaComponent, CardapioComponent],
   providers: [QRScanner],
-  entryComponents: [PagamentoComponent, EComandaComponent, CardapioComponent]
+  entryComponents: [EComandaComponent, CardapioComponent]
 })
-export class ComandaPageModule {}
+export class ComandaPageModule { }

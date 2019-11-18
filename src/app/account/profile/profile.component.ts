@@ -28,11 +28,7 @@ export class ProfileComponent implements OnInit {
     sobrenome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required]),
     celular: new FormControl(null, [Validators.required]),
-    cep: new FormControl(null, [Validators.required]),
-    logradouro: new FormControl(null, [Validators.required]),
-    bairro: new FormControl(null, [Validators.required]),
-    cidade: new FormControl(null, [Validators.required]),
-    numero: new FormControl(null, [Validators.required]),
+    datanasc: new FormControl(null, [Validators.required]),
   });
 
   get nome(): AbstractControl {
@@ -47,24 +43,12 @@ export class ProfileComponent implements OnInit {
     return this.form.get('celular');
   }
 
-  get cidade(): AbstractControl {
-    return this.form.get('cidade');
-  }
-
   get cpf(): AbstractControl {
     return this.form.get('cpf');
   }
 
-  get logradouro(): AbstractControl {
-    return this.form.get('logradouro');
-  }
-
-  get bairro(): AbstractControl {
-    return this.form.get('bairro');
-  }
-
-  get numero(): AbstractControl {
-    return this.form.get('numero');
+  get datanasc(): AbstractControl {
+    return this.form.get('datanasc');
   }
 
   constructor(
@@ -141,20 +125,21 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  buscarEndereco() {
-    let cep = this.form.get('cep').value;
-    this.viacep
-      .buscarPorCep(cep)
-      .then(endereco => {
-        this.logradouro.setValue(endereco.logradouro);
-        this.bairro.setValue(endereco.bairro);
-        this.cidade.setValue(endereco.localidade);
-        console.log(endereco);
-      })
-      .catch((error: ErroCep) => {
-        console.log(error.message);
-      });
-  }
+  // buscarEndereco() {
+  //   let cep = this.form.get('cep').value;
+  //   this.viacep
+  //     .buscarPorCep(cep)
+  //     .then(endereco => {
+  //       this.logradouro.setValue(endereco.logradouro);
+  //       this.bairro.setValue(endereco.bairro);
+  //       this.cidade.setValue(endereco.localidade);
+  //       console.log(endereco);
+  //     })
+  //     .catch((error: ErroCep) => {
+  //       console.log(error.message);
+  //     });
+  // }
+
 
   async dismissModal() {
     this.modalController.dismiss();

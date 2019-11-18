@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'comanda', loadChildren: './comanda/comanda.module#ComandaPageModule' },
   { path: 'forma-pgto', loadChildren: './forma-pgto/forma-pgto.module#FormaPgtoPageModule' },
+  { path: 'pagamento', loadChildren: './pagamento/pagamento.module#PagamentoPageModule' },
+
 
 ];
 

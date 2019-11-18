@@ -55,6 +55,11 @@ const routes: Routes = [
         pathMatch: 'full'
     },
     {
+        path: 'comanda',
+        redirectTo: '/tabs/comanda',
+        pathMatch: 'full'
+    },
+    {
         path: 'account',
         redirectTo: 'tabs/account',
         pathMatch: 'full'

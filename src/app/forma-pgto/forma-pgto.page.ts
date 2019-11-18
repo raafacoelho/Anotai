@@ -72,7 +72,7 @@ export class FormaPgtoPage implements OnInit {
   }
 
   Back() {
-    this.navCtrl.navigateBack("/tabs/account")
+    this.navCtrl.navigateBack("tabs/account")
   }
 
 }

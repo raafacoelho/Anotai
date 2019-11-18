@@ -2,7 +2,6 @@ import { CardapioComponent } from './cardapio/cardapio.component';
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ModalController } from '@ionic/angular';
-import { PagamentoComponent } from './pagamento/pagamento.component';
 import { EComandaComponent } from './e-comanda/e-comanda.component';
 
 @Component({
@@ -15,8 +14,8 @@ export class ComandaPage implements OnInit {
   public retornoQR: string = "Ainda não leu o QR.";
 
   constructor(private qrScanner: QRScanner,
-              private ref: ChangeDetectorRef,
-              private modalController: ModalController) { }
+    private ref: ChangeDetectorRef,
+    private modalController: ModalController) { }
 
   ngOnInit() {
   }
@@ -52,15 +51,6 @@ export class ComandaPage implements OnInit {
         }
       })
       .catch((e: any) => console.log('Error is', e));
-  }
-
-
-  async abrirModalPagamento() {
-    const modal = await this.modalController.create({
-      component: PagamentoComponent
-    });
-
-    return await modal.present();
   }
 
   async abrirModalComanda() {

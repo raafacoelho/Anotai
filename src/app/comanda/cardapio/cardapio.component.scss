@@ -29,12 +29,12 @@ ion-title {
 ion-item{
     border-bottom: 2px solid #4B4237 !important;
     padding: 5px 0px !important;
-    
+
 }
 
 ion-list{
     margin-top: 20px !important;
-    
+
 }
 
 ion-label{
@@ -56,4 +56,8 @@ ion-label{
     position: absolute;
     right: 0;
     bottom: 13px;
+}
+
+ion-item {
+    --inner-border-width: 0px;
 }

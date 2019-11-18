@@ -20,7 +20,7 @@ export class CardapioComponent implements OnInit {
     this.items = db.collection("Burguers").valueChanges();
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async dismissModal() {
     this.modalController.dismiss();
