@@ -13,8 +13,9 @@ export const environment = {
     messagingSenderId: '862307704604',
     appId: '1:862307704604:web:97414dcb83744bc2f1a4d9',
     measurementId: 'G-KWXLD8YV9R'
-  }
-
+  },
+  paypalClientId: 'Ac848AJLLWyYbYycRzQ5p7bWegsI-j8xr-SQ6wdCov4I6mKfNAbErTqDgoJI7K2OLxZEB8mi7pptv7k9',
+  paypalEnvironment: 'payPalEnvironmentSandbox'
 };
 
 /*

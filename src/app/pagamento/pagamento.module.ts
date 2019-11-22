@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 
 import { PagamentoPage } from './pagamento.page';
 
+import { PayPal } from '@ionic-native/paypal/ngx';
+
 const routes: Routes = [
   {
     path: '',
@@ -23,6 +25,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [PagamentoPage]
+  declarations: [PagamentoPage],
+  providers: [PayPal]
 })
 export class PagamentoPageModule { }

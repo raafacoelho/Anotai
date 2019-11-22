@@ -18,7 +18,6 @@ export class CardapioComponent implements OnInit {
     db: AngularFirestore
   ) {
     this.items = db.collection('Item').valueChanges();
-    console.log(this.items);
   }
 
   ngOnInit() { }

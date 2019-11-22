@@ -8,5 +8,22 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        <ion-row>
+          <ion-col>
+            Valor total
+          </ion-col>
+          <ion-col>
+            R$ {{valorTotal}}
+          </ion-col>
+        </ion-row>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="full" (click)="pagarComPaypal()"><ion-icon name="card"></ion-icon> Pagar com PayPal</ion-button>
+    </ion-card-content>
+  </ion-card>
+  {{retornoPaypal}}
 </ion-content>
