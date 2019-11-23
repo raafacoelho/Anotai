@@ -1,23 +1,23 @@
-import { Component, OnInit } from "@angular/core";
-import { ModalController, Platform, NavController } from "@ionic/angular";
-import { Camera, CameraOptions } from "@ionic-native/camera/ngx";
-import { File } from "@ionic-native/file/ngx";
-import { AngularFireStorage } from "@angular/fire/storage";
-import { Observable } from "rxjs";
-import { finalize } from "rxjs/operators";
-import { AngularFirestore } from "@angular/fire/firestore";
-import { NgxViacepService, ErroCep } from "@brunoc/ngx-viacep";
-import { FormGroup, FormControl, Validators, AbstractControl } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { ModalController, Platform, NavController } from '@ionic/angular';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NgxViacepService, ErroCep } from '@brunoc/ngx-viacep';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
-  selector: "app-profile",
-  templateUrl: "./profile.component.html",
-  styleUrls: ["./profile.component.scss"],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.scss'],
   providers: [AngularFirestore]
 })
 export class ProfileComponent implements OnInit {
   items: Observable<any[]>;
-  loading: boolean = false;
+  loading = false;
   profile: any = {};
 
   public uploadPercent: Observable<number>;
@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
     cpf: new FormControl(null, [Validators.required]),
     celular: new FormControl(null, [Validators.required]),
     datanasc: new FormControl(null, [Validators.required]),
+    sexo: new FormControl(null, [Validators.required]),
   });
 
   get nome(): AbstractControl {
@@ -48,6 +49,9 @@ export class ProfileComponent implements OnInit {
   }
 
   get datanasc(): AbstractControl {
+    return this.form.get('datanasc');
+  }
+  get sexo(): AbstractControl {
     return this.form.get('datanasc');
   }
 
@@ -77,16 +81,16 @@ export class ProfileComponent implements OnInit {
 
       let file: string;
 
-      if (this.platform.is("ios")) {
-        file = fileUri.split("/").pop();
+      if (this.platform.is('ios')) {
+        file = fileUri.split('/').pop();
       } else {
-        file = fileUri.substring(fileUri.lastIndexOf("/"));
+        file = fileUri.substring(fileUri.lastIndexOf('/'));
       }
 
-      const path: string = fileUri.substring(0, fileUri.lastIndexOf("/"));
+      const path: string = fileUri.substring(0, fileUri.lastIndexOf('/'));
 
       const buffer: ArrayBuffer = await this.file.readAsArrayBuffer(path, file);
-      const blob: Blob = new Blob([buffer], { type: "image/jpeg" });
+      const blob: Blob = new Blob([buffer], { type: 'image/jpeg' });
 
       this.uploadPicture(blob);
     } catch (error) {
@@ -95,7 +99,7 @@ export class ProfileComponent implements OnInit {
   }
 
   uploadPicture(blob: Blob) {
-    const ref = this.afStorage.ref("avatar/ionic.jpg");
+    const ref = this.afStorage.ref('avatar/ionic.jpg');
     const task = ref.put(blob);
 
     this.uploadPercent = task.percentageChanges();
@@ -110,7 +114,7 @@ export class ProfileComponent implements OnInit {
 
     if (this.form.valid) {
       this.loading = true;
-      this.db.collection("Contato").add(this.form.value)
+      this.db.collection('Cliente').add(this.form.value)
         .then(
           result => {
             console.log(result);
