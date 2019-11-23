@@ -10,14 +10,18 @@ import { Observable } from 'rxjs';
   providers: [AngularFirestore]
 })
 export class CardapioComponent implements OnInit {
-  items: Observable<any[]>;
+  comida: Observable<any[]>;
+  bebida: Observable<any[]>;
+  sobremesa: Observable<any[]>;
 
   constructor(
     private modalController: ModalController,
     public navCtrl: NavController,
     db: AngularFirestore
   ) {
-    this.items = db.collection('Item').valueChanges();
+    this.comida = db.collection('Comida').valueChanges();
+    this.bebida = db.collection('Bebida').valueChanges();
+    this.sobremesa = db.collection('Sobremesa').valueChanges();
   }
 
   ngOnInit() { }
