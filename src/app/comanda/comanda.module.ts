@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 import { ComandaPage } from './comanda.page';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
+import { ItensComponent } from './cardapio/itens/itens.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ComandaPage, EComandaComponent, CardapioComponent],
+  declarations: [ComandaPage, EComandaComponent, CardapioComponent, ItensComponent],
   providers: [QRScanner],
   entryComponents: [EComandaComponent, CardapioComponent]
 })

@@ -1,7 +1,10 @@
 import { Component, OnInit, Injectable } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Empresa } from 'src/app/model/empresa.model';
+import { Categoria } from 'src/app/model/categoria.model';
 
 @Component({
   selector: 'app-cardapio',
@@ -10,18 +13,24 @@ import { Observable } from 'rxjs';
   providers: [AngularFirestore]
 })
 export class CardapioComponent implements OnInit {
-  comida: Observable<any[]>;
-  bebida: Observable<any[]>;
-  sobremesa: Observable<any[]>;
+  public categorias: Observable<Categoria[]>;
+  public categoriasCollection: AngularFirestoreCollection<Categoria>;
 
   constructor(
     private modalController: ModalController,
     public navCtrl: NavController,
     db: AngularFirestore
   ) {
-    this.comida = db.collection('Comida').valueChanges();
-    this.bebida = db.collection('Bebida').valueChanges();
-    this.sobremesa = db.collection('Sobremesa').valueChanges();
+
+    this.categoriasCollection = db.collection<Empresa>('Empresa').doc(/*Id empresa*/'OyRRqKJJyUz655uN8fR9').collection<Categoria>('Categoria');
+
+    this.categorias = this.categoriasCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Categoria;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
   ngOnInit() { }

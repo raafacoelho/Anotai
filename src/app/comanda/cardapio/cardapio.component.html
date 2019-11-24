@@ -6,79 +6,11 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <!-- Hamburguers-->
-  <div>
-    <h5 class="feature-title">Burgers</h5>
-    <!--
-    <ion-list>
-      <ion-item *ngFor="let item of items | async">
-        <ion-label>
-          {{ item | json }}
-        </ion-label>
-      </ion-item>
-    </ion-list>
+  <div *ngFor="let categoria of categorias | async as Categoria">
+    <h5 class="feature-title">{{categoria.nome}}</h5>
+
+    <itens [categoriaId]="categoria.id" [collection]="categoriasCollection"></itens>
   </div>
--->
-    <ion-list>
-      <ion-item *ngFor="let item of comida | async">
-        <ion-avatar slot="start">
-          <ion-img align='right' class="border-img" src="./assets/img/h.jpg"></ion-img>
-        </ion-avatar>
-        <ion-label >
-          <p class="item-title">{{ item.nome }}</p>
-          <p class="item-description">{{ item.descricao }} </p>
-          <p class="item-price">R${{ item.preco}} </p>
-        </ion-label>
-
-      </ion-item>
-
-    </ion-list>
-  </div>
-
-
-
-  <!-- Bebidas -->
-
-  <div>
-    <h5 class="feature-title">Bebidas</h5>
-
-    <ion-list>
-        <ion-item *ngFor="let item of bebida | async">
-          <ion-avatar slot="start">
-            <ion-img align='right' class="border-img" src="./assets/img/h.jpg"></ion-img>
-          </ion-avatar>
-          <ion-label >
-            <p class="item-title">{{ item.nome }}</p>
-            <p class="item-description">{{ item.descricao }} </p>
-            <p class="item-price">R${{ item.preco}} </p>
-          </ion-label>
-  
-        </ion-item>
-  
-      </ion-list>
-
-  </div>
-
-  <!-- Sobremesa -->
-
-  <div>
-      <h5 class="feature-title">Sobremesa</h5>
-  
-      <ion-list>
-          <ion-item *ngFor="let item of sobremesa | async">
-            <ion-avatar slot="start">
-              <ion-img align='right' class="border-img" src="./assets/img/h.jpg"></ion-img>
-            </ion-avatar>
-            <ion-label >
-              <p class="item-title">{{ item.nome }}</p>
-              <p class="item-description">{{ item.descricao }} </p>
-              <p class="item-price">R${{ item.preco}} </p>
-            </ion-label>
-    
-          </ion-item>
-    
-        </ion-list>
-  
-    </div>
 </ion-content>
