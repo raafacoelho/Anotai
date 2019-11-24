@@ -26,8 +26,8 @@
               <form [formGroup]="authForm" (submit)="onSubmit(authProviders.Email)">
                 <ng-container *ngIf="!configs.isSignIn">
                   <ion-item>
-                    <ion-icon name="person" color="primary" slot="start"></ion-icon>
-                    <ion-input type="text" placeholder="Name" formControlName="name"></ion-input>
+                    <ion-icon name="person" color="light" slot="start"></ion-icon>
+                    <ion-input type="text" class="bold" placeholder="Nome" formControlName="name"></ion-input>
                     <ion-note
                       slot="end"
                       color="danger"
@@ -77,7 +77,7 @@
                   <ion-input
                     class="bold"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Senha"
                     formControlName="password"
                   ></ion-input>
                   <ion-note

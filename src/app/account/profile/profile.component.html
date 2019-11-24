@@ -25,14 +25,9 @@
     <div class="form">
       <ion-list>
         <ion-item>
-          <ion-label>Nome</ion-label>
-          <ion-input type="text" name="name" formControlName="nome" mask="(99) 9 9999-9999">
+          <ion-label>Nome completo</ion-label>
+          <ion-input type="text" name="name" formControlName="nome" >
           </ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-label>Sobrenome</ion-label>
-          <ion-input type="text" name="sobrenome" formControlName="sobrenome"></ion-input>
         </ion-item>
 
         <ion-item>
@@ -42,7 +37,7 @@
 
         <ion-item>
           <ion-label>Celular</ion-label>
-          <ion-input type="text" name="celular" formControlName="celular">
+          <ion-input type="text" name="celular" formControlName="celular" mask="(99) 9 9999-9999">
           </ion-input>
         </ion-item>
 

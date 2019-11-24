@@ -8,6 +8,7 @@ ion-title {
     font-size: 20px;
 }
 
+/*
 .feature-title{
     color: #4B4237;
     font-weight: 1000;
@@ -43,16 +44,17 @@ ion-label{
 }
 
 
-
-.item-description{
-    color: #4B4237;
-    font-size: 100;
-    font-size: 12px;
-    font-style: italic;
-    width: 80%;
+ion-item{ 
+    .item-description{
+        color: #4B4237 !important;
+        font-size: 100;
+        font-size: 12px;
+        font-style: italic;
+        width: 80%;
+    }
 }
 
-.item-price{
+item-price{
     color: #4B4237;
     position: absolute;
     right: 0;
@@ -66,3 +68,8 @@ ion-item {
 ion-img {
     --min-height: 0px;
 }
+
+.sc-ion-label-ios-s > p {
+    color: #4B4237 !important;
+}
+*/

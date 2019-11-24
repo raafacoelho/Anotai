@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
 
   form: FormGroup = new FormGroup({
     nome: new FormControl(null, [Validators.required]),
-    sobrenome: new FormControl(null, [Validators.required]),
     cpf: new FormControl(null, [Validators.required]),
     celular: new FormControl(null, [Validators.required]),
     datanasc: new FormControl(null, [Validators.required]),
@@ -34,10 +33,6 @@ export class ProfileComponent implements OnInit {
 
   get nome(): AbstractControl {
     return this.form.get('nome');
-  }
-
-  get sobrenome(): AbstractControl {
-    return this.form.get('sobrenome');
   }
 
   get celular(): AbstractControl {
