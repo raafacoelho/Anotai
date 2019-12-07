@@ -1,5 +1,5 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import { ModalController, NavController } from '@ionic/angular';
+import { Component, OnInit, Injectable, Input } from '@angular/core';
+import { ModalController, NavController, NavParams } from '@ionic/angular';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,16 +13,20 @@ import { Categoria } from 'src/app/model/categoria.model';
   providers: [AngularFirestore]
 })
 export class CardapioComponent implements OnInit {
+  
+  @Input() idEmpresa: string;
+
   public categorias: Observable<Categoria[]>;
   public categoriasCollection: AngularFirestoreCollection<Categoria>;
 
   constructor(
     private modalController: ModalController,
     public navCtrl: NavController,
-    db: AngularFirestore
+    db: AngularFirestore,
+    navParams: NavParams
   ) {
 
-    this.categoriasCollection = db.collection<Empresa>('Empresa').doc(/*Id empresa*/'OyRRqKJJyUz655uN8fR9').collection<Categoria>('Categoria');
+    this.categoriasCollection = db.collection<Empresa>('Empresa').doc(navParams.get('idEmpresa')).collection<Categoria>('Categoria');
 
     this.categorias = this.categoriasCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {

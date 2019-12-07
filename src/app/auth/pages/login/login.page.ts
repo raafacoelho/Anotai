@@ -74,6 +74,9 @@ export class LoginPage implements OnInit {
         user: this.authForm.value,
         provider
       });
+
+      this.authService.saveLocalUser(credentials.user);
+
       this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/home');
     } catch (e) {
       console.log('Auth error: ', e);

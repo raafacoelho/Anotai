@@ -12,9 +12,19 @@ import { AuthOptions, AuthProvider, User } from './auth.types';
 export class AuthService {
 
   authState$: Observable<firebase.User>;
+  storage: Storage;
+  userInfoKey: string = 'user';
+
+  get authenticatedUser(): firebase.User {
+    if (this.storage.getItem(this.userInfoKey) == null)
+      return null;
+
+    return <firebase.User>JSON.parse(this.storage.getItem(this.userInfoKey));
+  }
 
   constructor(private afAuth: AngularFireAuth) {
     this.authState$ = this.afAuth.authState;
+    this.storage = localStorage;
   }
 
   get isAuthenticated(): Observable<boolean> {
@@ -63,4 +73,7 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup(signInProvider);
   }
 
+  saveLocalUser(user) {
+    this.storage.setItem(this.userInfoKey, JSON.stringify(user));
+  }
 }

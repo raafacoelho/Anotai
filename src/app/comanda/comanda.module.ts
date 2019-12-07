@@ -11,6 +11,7 @@ import { ComandaPage } from './comanda.page';
 
 import { QRScanner } from '@ionic-native/qr-scanner/ngx';
 import { ItensComponent } from './cardapio/itens/itens.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 const routes: Routes = [
   {
@@ -27,7 +28,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [ComandaPage, EComandaComponent, CardapioComponent, ItensComponent],
-  providers: [QRScanner],
+  providers: [QRScanner, AngularFirestore],
   entryComponents: [EComandaComponent, CardapioComponent]
 })
 export class ComandaPageModule { }

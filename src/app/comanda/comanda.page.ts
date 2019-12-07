@@ -3,6 +3,13 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner/ngx';
 import { ModalController } from '@ionic/angular';
 import { EComandaComponent } from './e-comanda/e-comanda.component';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
+import { Cliente } from '../model/cliente.model';
+import { Observable } from 'rxjs';
+import { AuthService } from '../core/services/auth.service';
+import { map } from 'rxjs/operators';
+import { Comanda } from '../model/comanda.model';
+import { StatusComanda } from '../enum/status-comanda.enum';
 
 @Component({
   selector: 'app-comanda',
@@ -11,11 +18,42 @@ import { EComandaComponent } from './e-comanda/e-comanda.component';
 })
 export class ComandaPage implements OnInit {
 
-  public retornoQR: string = "Ainda não leu o QR.";
+  public comandas: Comanda[];
+  public clienteCollection: AngularFirestoreCollection<Comanda>;
+  storage: Storage;
+
+  idEmpresaKey: string = "_idEmpresa";
+  idComandaKey: string = "_idComanda";
 
   constructor(private qrScanner: QRScanner,
     private ref: ChangeDetectorRef,
-    private modalController: ModalController) { }
+    private modalController: ModalController,
+    private _authService: AuthService,
+    db: AngularFirestore) {
+
+    this.storage = localStorage;
+
+    this.clienteCollection = db.collection<Cliente>('Cliente').doc(this._authService.authenticatedUser.uid).collection<Comanda>('Comanda');
+
+    this.clienteCollection.snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Comanda;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    ).subscribe(data => {
+      this.comandas = data;
+
+      let comandaAberta = this.comandas.filter(a => a.status == StatusComanda.Aberta);
+
+      if (comandaAberta.length == 0) {
+        this.lerQrCode();
+      }
+      else {
+        this.abrirModalCardapio();
+      }
+    });
+  }
 
   ngOnInit() {
   }
@@ -36,11 +74,18 @@ export class ComandaPage implements OnInit {
             // A variável text abaixo é o retorno da leitura do QR.
             (text: string) => {
 
-              this.retornoQR = text;
+              let retorno: string[] = text.split(':');
+              this.storage.setItem(this.idEmpresaKey, retorno[0]);
+              this.storage.setItem(this.idComandaKey, retorno[1]);
+
+              this.criarComanda(); // Cliente -> Comanda
 
               this.qrScanner.hide(); // Esconde o preview da camera
               scanSub.unsubscribe(); // Para de Scann
               window.document.querySelector('ion-app').classList.remove('transparent-body');
+
+              this.abrirModalCardapio();
+
               this.ref.detectChanges();
             });
 
@@ -63,9 +108,16 @@ export class ComandaPage implements OnInit {
 
   async abrirModalCardapio() {
     const modal = await this.modalController.create({
-      component: CardapioComponent
+      component: CardapioComponent,
+      componentProps: {
+        'idEmpresa': this.storage.getItem(this.idEmpresaKey)
+      }
     });
 
     return await modal.present();
+  }
+
+  criarComanda(){
+    // Lógica para criar comanda.
   }
 }
