@@ -1,14 +1,47 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
-    <ion-title>Minha conta</ion-title>
-    <ion-avatar item-start>
-      <ion-img src="./assets/icon/eu.jpg"></ion-img>
-    </ion-avatar>
+    <ion-title>Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="abrirModalProfile()" expand="block">
-    Perfil
-  </ion-button>
+  <form [formGroup]="form" (submit)="saveContato()">
+    <div class="form">
+      <ion-list>
+        <ion-item>
+          <ion-label>Nome completo</ion-label>
+          <ion-input type="text" name="name" formControlName="nome" >
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>CPF</ion-label>
+          <ion-input type="text" name="cpf" formControlName="cpf"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Celular</ion-label>
+          <ion-input type="text" name="celular" formControlName="celular" mask="(99) 9 9999-9999">
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Aniversário</ion-label>
+          <ion-datetime required name="birthdate" displayFormat="DD MMM YYYY" pickerFormat="DD MMM YYYY"
+            formControlName="datanasc"></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Sexo</ion-label>
+            <ion-select placeholder="Select One" formControlName="sexo">
+              <ion-select-option value="f">Feminino</ion-select-option>
+              <ion-select-option value="m">Masculino</ion-select-option>
+            </ion-select>
+          </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-button class="save" expand="full" color="medium" block [disabled]="loading" type="submit">Salvar
+    </ion-button>
+  </form>
 </ion-content>

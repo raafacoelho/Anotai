@@ -6,9 +6,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AccountPage } from './account.page';
-import { ProfileComponent } from './profile/profile.component';
-import { CadastroPgtoComponent } from './cadastro-pgto/CadastroPgtoComponent';
-import { FormaPgtoPage } from '../forma-pgto/forma-pgto.page';
 
 const routes: Routes = [
   {
@@ -26,8 +23,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
 
-  declarations: [AccountPage, ProfileComponent, CadastroPgtoComponent],
-  entryComponents: [ProfileComponent, CadastroPgtoComponent]
+  declarations: [AccountPage]
 
 })
 export class AccountPageModule { }
