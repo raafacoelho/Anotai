@@ -22,10 +22,11 @@ export class ComandaPage implements OnInit {
   public clienteCollection: AngularFirestoreCollection<Comanda>;
   storage: Storage;
 
-  idEmpresaKey: string = "_idEmpresa";
-  idComandaKey: string = "_idComanda";
+  idEmpresaKey: string = '_idEmpresa';
+  idComandaKey: string = '_idComanda';
 
-  constructor(private qrScanner: QRScanner,
+  constructor(
+    private qrScanner: QRScanner,
     private ref: ChangeDetectorRef,
     private modalController: ModalController,
     private _authService: AuthService,
@@ -117,7 +118,7 @@ export class ComandaPage implements OnInit {
     return await modal.present();
   }
 
-  criarComanda(){
+  criarComanda() {
     // Lógica para criar comanda.
   }
 }

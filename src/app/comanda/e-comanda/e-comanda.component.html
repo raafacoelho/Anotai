@@ -7,19 +7,9 @@
   </ion-toolbar>
 </ion-header>
 <ion-content fullscreen>
-<!-- Hamburguers-->
-<div>
-    <h5 class="feature-title">Minha comanda</h5>
-    
-    <ion-list>
-      <ion-item *ngFor="let item of items | async">
-        <ion-label>
-          {{ item | json }}
-        </ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
 
-  <ion-button expand="full" href="/pagamento">Pagar</ion-button>
-  
 </ion-content>
+
+<ion-footer>
+  <ion-button class="pagar" expand="full" href="/pagamento">Pagar</ion-button>
+</ion-footer>

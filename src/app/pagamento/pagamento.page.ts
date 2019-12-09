@@ -10,45 +10,48 @@ import { PaypalPaymentResponse } from '../model/paypal/paypal-payment-response.m
   styleUrls: ['./pagamento.page.scss'],
 })
 export class PagamentoPage implements OnInit {
+  disabled = false;
 
-  valorTotal: number = 15.67;
-  retornoPaypal: string = "";
+  valorTotal: number = 0.00;
+  retornoPaypal: string = '';
 
   constructor(private navCtrl: NavController,
-              private payPal: PayPal) { }
+              private payPal: PayPal) {
+                this.disabled = !this.disabled;
+               }
 
   ngOnInit() {
   }
 
   Back() {
-    this.navCtrl.navigateBack("/home/tabs/comanda")
+    this.navCtrl.navigateBack('/home/tabs/comanda');
   }
 
-  pagarComPaypal(){
+  pagarComPaypal() {
     console.log(environment.paypalEnvironment);
     console.log(environment.paypalClientId);
     this.payPal.init({
       PayPalEnvironmentProduction: environment.paypalClientId,
       PayPalEnvironmentSandbox: environment.paypalClientId
     }).then(() => {
-      
+
       this.payPal.prepareToRender(environment.paypalEnvironment, new PayPalConfiguration({
-        
+
       })).then(() => {
         let payment = new PayPalPayment(this.valorTotal.toString(), 'BRL', 'Descrição da venda', 'sale');
         this.payPal.renderSinglePaymentUI(payment).then((res) => {
-          
-          switch((<PaypalPaymentResponse>res).response.state) { 
-            case "approved": { 
+
+          switch ((<PaypalPaymentResponse> res).response.state) {
+            case 'approved': {
                 // Lógica de quando a transação é aprovada.
-                this.retornoPaypal = JSON.stringify(res); 
-               break; 
+                this.retornoPaypal = JSON.stringify(res);
+               break;
             }
-            default: { 
+            default: {
                // Lógica de quando é diferente de aprovado.
-               break; 
-            } 
-         } 
+               break;
+            }
+         }
           console.log(res);
         }, () => {
           // Lógica de erro de renderização ou tela de pagamento fechada.

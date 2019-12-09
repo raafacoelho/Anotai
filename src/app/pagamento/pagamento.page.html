@@ -22,7 +22,7 @@
       </ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-button expand="full" (click)="pagarComPaypal()"><ion-icon name="card"></ion-icon> Pagar com PayPal</ion-button>
+      <ion-button color="secondary" expand="full" [disabled]="disabled" (click)="pagarComPaypal()"><ion-icon name="card"></ion-icon> Pagar com PayPal</ion-button>
     </ion-card-content>
   </ion-card>
   {{retornoPaypal}}
