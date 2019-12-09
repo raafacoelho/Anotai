@@ -1,11 +1,13 @@
 import { OverlayService } from './../../../core/services/overlay.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { NavController, LoadingController, Platform, AlertController } from '@ionic/angular';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AuthProvider } from 'src/app/core/services/auth.types';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
 
 
 
@@ -15,6 +17,8 @@ import { AuthProvider } from 'src/app/core/services/auth.types';
   styleUrls: ['./login.page.scss']
 })
 export class LoginPage implements OnInit {
+  FB_APP_ID: number = 2443079689293615;
+
   authForm: FormGroup;
   authProviders = AuthProvider;
   configs = {
@@ -26,6 +30,13 @@ export class LoginPage implements OnInit {
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
 
   constructor(
+    private face: Facebook,
+    private nativeStorage: NativeStorage,
+    public loadingController: LoadingController,
+    private router: Router,
+    private platform: Platform,
+    public alertController: AlertController,
+
     private authService: AuthService,
     private fb: FormBuilder,
     private navCtrl: NavController,
@@ -86,6 +97,61 @@ export class LoginPage implements OnInit {
     } finally {
       loading.dismiss();
     }
+  }
+
+  async doFbLogin() {
+    const loading = await this.loadingController.create({
+      message: 'Please wait...'
+    });
+    this.presentLoading(loading);
+
+    // the permissions your facebook app needs from the user
+    const permissions = ['public_profile', 'email'];
+
+    this.face.login(permissions)
+    .then(response => {
+      let userId = response.authResponse.userID;
+      // Getting name and email properties
+      // Learn more about permissions in https://developers.facebook.com/docs/facebook-login/permissions
+
+      this.face.api('/me?fields=name,email', permissions)
+      .then(user => {
+        user.picture = 'https://graph.facebook.com/' + userId + '/picture?type=large';
+        // now we have the users info, let's save it in the NativeStorage
+        this.nativeStorage.setItem('facebook_user',
+        {
+          name: user.name,
+          email: user.email,
+          picture: user.picture
+        })
+        .then(() => {
+          this.router.navigate(['/home']);
+          loading.dismiss();
+        }, error => {
+          console.log(error);
+          loading.dismiss();
+        });
+      });
+    }, error => {
+      console.log(error);
+      if (!this.platform.is('cordova')) {
+        this.presentAlert();
+      }
+      loading.dismiss();
+    });
+  }
+
+  async presentAlert() {
+    const alert = await this.alertController.create({
+       message: 'Cordova is not available on desktop. Please try this in a real device or in an emulator.',
+       buttons: ['OK']
+     });
+
+    await alert.present();
+  }
+
+  async presentLoading(loading) {
+    return await loading.present();
   }
 
 

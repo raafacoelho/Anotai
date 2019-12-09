@@ -110,9 +110,8 @@
               <ion-button class="color criar-conta" expand="block" fill="clear" (click)="changeAuthAction()">
                 {{ configs.actionChange }}
               </ion-button>
-              <ion-button class="logo-face" expand="block" (click)="onSubmit(authProviders.Facebook)">
-                <ion-icon name="logo-facebook" slot="start"></ion-icon>
-                Logar com Facebook
+              <ion-button class="log-in-button" color="primary" expand="block" (click)="doFbLogin()">
+                LOG IN WITH FACEBOOK
               </ion-button>
             </ion-col>
           </ion-row>
