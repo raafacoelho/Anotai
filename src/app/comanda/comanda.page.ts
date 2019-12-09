@@ -42,7 +42,8 @@ export class ComandaPage implements OnInit {
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
-    ).subscribe(data => {
+    );
+    /*.subscribe(data => {
       this.comandas = data;
 
       let comandaAberta = this.comandas.filter(a => a.status == StatusComanda.Aberta);
@@ -54,6 +55,7 @@ export class ComandaPage implements OnInit {
         this.abrirModalCardapio();
       }
     });
+    */
   }
 
   ngOnInit() {
